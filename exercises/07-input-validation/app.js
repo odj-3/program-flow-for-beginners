@@ -6,8 +6,15 @@ Edita solo el flujo Mermaid dentro de `answer`.
 Manten esta forma: const answer = `...`; module.exports = answer.trim();
 */
 const answer = `
+
 flowchart TD
-    A[start] --> B[end]
+    A("Start") --> B["Ask email"]
+    B --> C{"Email valid?"}
+    C -->|Yes| D["Continue registration"]
+    C -->|No| E["Show error: invalid email"]
+    E --> B
+    D --> F("End")
+
 `;
 
 module.exports = answer.trim();
